@@ -9,7 +9,7 @@ import app from './app'
 
 const PAT_WORD = /^[a-z]+('|'s)?$/i
 
-function translateText (text) {
+function translateText(text) {
   const sourceText = trim(text)
   const cacheKey = `text:v2:${sourceText}`
   let result = lscache.get(cacheKey)
@@ -21,9 +21,16 @@ function isWord(text) {
 }
 
 dispatchMessage({
-  translate (message, sender, sendResponse) {
+  translate(message, sender, sendResponse) {
+    console.trace('background translate')
+    console.log('message', message)
+    console.log('sender', sender)
     storage.get('notifyTimeout').then(options => {
+      console.trace('storage')
+      console.log(options)
       translateText(message.text).then(result => {
+        console.trace('translateText')
+        console.log(result)
         if (message.from === 'page') {
           result.timeout = options.notifyTimeout
         } else {
@@ -35,9 +42,9 @@ dispatchMessage({
     })
   },
 
-  selection (message, sender, sendResponse) {
+  selection(message, sender, sendResponse) {
     window.localStorage.setItem('current', message.text)
-
+    console.trace('selection')
     if (isWord(message.text)) {
       getActiveTab(tab => {
         if (app.isSiteEnabled(tab.hostname)) {
@@ -50,11 +57,11 @@ dispatchMessage({
     }
   },
 
-  current (message, sender, sendResponse) {
+  current(message, sender, sendResponse) {
     sendResponse(window.localStorage.getItem('current'))
   },
 
-  linkInspect (message, sender, sendResponse) {
+  linkInspect(message, sender, sendResponse) {
     if (message.enabled) {
       chrome.browserAction.setIcon({ path: 'images/icon-128-link.png' })
     } else {

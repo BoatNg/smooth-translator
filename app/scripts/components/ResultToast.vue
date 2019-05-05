@@ -23,6 +23,7 @@ export default {
   },
   methods: {
     translate() {
+      console.trace('resutl toast translate')
       const message = {
         type: 'translate',
         text: this.result.text,
@@ -30,9 +31,9 @@ export default {
       };
       chrome.runtime.sendMessage(message, (result) => {
         this.result = Object.assign(this.result, result);
-        this.timer = setTimeout(() => {
-          this.result.show = false;
-        }, this.result.timeout * 1000);
+        // this.timer = setTimeout(() => {
+        //   this.result.show = false;
+        // }, this.result.timeout * 1000);
       });
     },
     hide() {

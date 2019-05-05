@@ -44,6 +44,7 @@ export default class Dict {
 }
 
 Dict.translate = function (text) {
+  console.trace('Dict translate')
   let dict = new Dict()
   return dict.translate(text).finally(() => {
     dict.destroy()

@@ -19,6 +19,7 @@ function getApp () {
 }
 
 function translate (message, sender, sendResponse) {
+  console.log('page translate')
   getApp().translate(message.text)
 }
 
