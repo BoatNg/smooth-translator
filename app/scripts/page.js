@@ -24,7 +24,7 @@ function translate (message, sender, sendResponse) {
 }
 
 function toggleLink (message, sender, sendResponse) {
-  toggleLinkInspectMode()
+  // toggleLinkInspectMode()
 }
 
 dispatchMessage({ translate, toggleLink })

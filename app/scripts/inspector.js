@@ -4,7 +4,7 @@ import { toggleLinkInspectMode } from './helpers/utils'
 
 function selectionHandler(evt) {
   console.trace('selectionHandler')
-  toggleLinkInspectMode(false)
+  // toggleLinkInspectMode(false)
 
   const text = getSelection()
 
