@@ -77,5 +77,5 @@ export function stopPropagation(event) {
 export function toggleLinkInspectMode (flag) {
   $('body').toggleClass('cst-link-inspect-mode', flag)
   const enabled = $('body').is('.cst-link-inspect-mode')
-  chrome.runtime.sendMessage({ type: 'linkInspect', enabled })
+  // chrome.runtime.sendMessage({ type: 'linkInspect', enabled })
 }

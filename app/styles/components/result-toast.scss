@@ -1,25 +1,30 @@
 #cst-list .cst-result-toast {
   @include fade;
 
-  z-index: 2147483647;
-  max-width: 250px;
-  min-width: 150px;
-  line-height: 1.5;
-  font-size: 14px;
-  margin-bottom: 5px;
-  border-radius: 5px;
-  opacity: 0.9;
-  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+  width: 330px;
+  padding: 14px 26px 14px 13px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ebeef5;
+  background: rgba(255, 255, 255, .78);
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+  transition: opacity .3s, transform .3s, left .3s, right .3s, top .4s, bottom .3s;
+  overflow: hidden;
+  margin-bottom: 15px;
+  position: relative;
 
   a.close {
-    float: right;
+    position: absolute;
+    top: 10px;
+    right: 20px;
     text-decoration: none;
-    margin-right: 5px;
-    font-size: .8em;
+    font-size: 22px;
+    font-weight: 300;
     color: #cecece;
+    transition: color 350ms;
 
     &:hover {
-      color: #ffffff;
+      color: #03A9F4;
     }
   }
 }
